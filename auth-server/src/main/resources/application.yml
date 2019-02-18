@@ -1,0 +1,34 @@
+server:
+  port: 8090
+
+logging:
+  level:
+    org.springframework.web: DEBUG
+    org.springframework.security: DEBUG
+
+spring:
+  application:
+    name: auth-server
+  profiles:
+    active:
+      default
+  datasource:
+    url: jdbc:postgresql://localhost:5432/webplatform
+    username: ohdsi
+    password: ohdsi
+  jpa:
+    hibernate.ddl-auto: validate
+    properties:
+      hibernate:
+        database-platform: org.hibernate.dialect.PostgreSQL95Dialect
+        default_schema: auth_server
+        temp:
+          use_jdbc_metadata_defaults: false
+  flyway:
+    schemas: ${spring.jpa.properties.hibernate.default_schema}
+
+security:
+  jwt:
+    token:
+      secret-key: supersecret123verylongtosatisfyHMAC
+      expire-in-seconds: 3600

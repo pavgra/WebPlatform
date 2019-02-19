@@ -1,5 +1,5 @@
 server:
-  port: 8090
+  port: 0
 
 logging:
   level:
@@ -8,7 +8,7 @@ logging:
 
 spring:
   application:
-    name: auth-server
+    name: auth-svr
   profiles:
     active:
       default
@@ -32,3 +32,15 @@ security:
     token:
       secret-key: supersecret123verylongtosatisfyHMAC
       expire-in-seconds: 3600
+
+eureka:
+  instance:
+    preferIpAddress: true
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 2
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+        defaultZone: http://localhost:8761/eureka/
+    #enabled: false

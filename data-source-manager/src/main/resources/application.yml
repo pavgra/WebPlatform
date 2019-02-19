@@ -25,7 +25,7 @@ spring:
 security:
   oauth2:
     resource:
-      userInfoUri: http://localhost:8090/me
+      userInfoUri: http://localhost:5555/auth-svr/me
 
 logging:
   level:
@@ -43,4 +43,3 @@ eureka:
     fetchRegistry: true
     serviceUrl:
         defaultZone: http://localhost:8761/eureka/
-    enabled: false

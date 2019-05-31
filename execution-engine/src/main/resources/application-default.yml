@@ -1,0 +1,21 @@
+server:
+  port: 0 # TODO: it is ignored, needs to be fixed
+  ssl:
+    enabled: true
+
+spring:
+  application:
+    name: execution-engine
+  profiles:
+    active: default,base,dev
+
+eureka:
+  instance:
+    preferIpAddress: true
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 2
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+        defaultZone: http://localhost:8761/eureka/

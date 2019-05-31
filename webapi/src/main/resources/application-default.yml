@@ -1,0 +1,20 @@
+server:
+  port: 0
+  context-path: /
+
+spring:
+  application:
+    name: webapi
+  aop:
+    proxy-target-class: true
+
+eureka:
+  instance:
+    preferIpAddress: true
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 2
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+        defaultZone: http://localhost:8761/eureka/

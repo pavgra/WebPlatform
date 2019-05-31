@@ -1,6 +1,6 @@
 spring:
   application:
-    name: zuul-svr
+    name: proxy-svr
   profiles:
     active:
       default
@@ -35,3 +35,13 @@ management:
 # See ZuulProperties.sensitiveHeaders for default values ("Cookie", "Set-Cookie", "Authorization")
 zuul:
   sensitiveHeaders: Cookie,Set-Cookie
+
+ribbon.ReadTimeout: 60000
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
